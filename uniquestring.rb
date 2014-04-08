@@ -1,23 +1,32 @@
-def unique?(string)
-  sc = string.chars
-  sc.each_index do |i|
-    sc.each_index do |ii|
-      next if ii <= i
-      return false if sc[i] == sc[ii]
+class UniqueString
+  def unique?(string)
+    sc = string.chars
+    sc.each_index do |i|
+      sc.each_index do |ii|
+        next if ii <= i
+        return false if sc[i] == sc[ii]
+      end
     end
+    true
   end
-  true
-end
-def unique(string)
-  if string.chars.uniq == string.charsg
-    puts "Unique!"
-  else
-    puts "Repetetive!"
+
+  def unique(string)
+    sc = string.chars
+    if sc.uniq == sc
+      puts "Unique!"
+    else
+      p sc.uniq.
+       map { | e | [sc.count(e), e] }.
+       select { | c, _ | c > 1 }.sort
+    end
   end
 end
 
-p unique?("This is a string. Does it have repeated characters?")
-p unique?("abcdefghijklmnopqrstuvwxyz")
-unique("this one is gonna be repetetive")
-unique("true as")
+try = UniqueString.new
+
+p try.unique?("This is a string. Does it have repeated characters?")
+p try.unique?("abcdefghijklmnopqrstuvwxyz")
+try.unique("this one is gonna be repetetive")
+try.unique("true as")
+try.unique("abcdefghijklmnopqrstuvwxyzbhdieomcndhsjsla;soeidkdhdhwiwnwiwnwiwnw")
 
