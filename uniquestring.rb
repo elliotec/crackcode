@@ -16,8 +16,10 @@ class UniqueString
       puts "Unique!"
     else
       p sc.uniq.
-       map { | e | [sc.count(e), e] }.
-       select { | c, _ | c > 1 }.sort
+       map { |e| [sc.count(e), e] }.
+       select { |c, _| c > 1 }.
+       sort.reverse.
+       map { |c, e| "#{e}:#{c}" }
     end
   end
 end
